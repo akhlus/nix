@@ -1,11 +1,18 @@
 {
+  flakePath,
+  hostname,
   pkgs,
   username,
   ...
 }: {
+  networking.hostName = hostname;
+  environment.variables = {
+    FLAKE_PATH = "${flakePath}";
+    LD_LIBRARY_PATH = "$NIX_LD_LIBRARY_PATH";
+  };
   security.pam.services.sudo_local.touchIdAuth = true;
-
   system = {
+    stateVersion = 6;
     primaryUser = "${username}";
     defaults = {
       NSGlobalDomain = {
@@ -78,6 +85,4 @@
       remapCapsLockToEscape = true;
     };
   };
-
-  system.stateVersion = 6;
 }
