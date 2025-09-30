@@ -1,12 +1,10 @@
 {
   config,
-  inputs,
   lib,
   pkgs,
   ...
 }: let
   cfg = config.hMods.packages;
-  render-go = inputs.render-go.packages.${pkgs.stdenv.hostPlatform.system}.default;
 in {
   imports = [
     ./cli
@@ -43,7 +41,6 @@ in {
         nix-search-cli
         nixd
         python3
-        render-go
         speedtest-cli
         tldr
       ]

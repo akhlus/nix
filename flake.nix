@@ -25,6 +25,8 @@
       ];
       default.imports = darwin.imports ++ home.imports;
     };
+
+    homeModules.default.imports = [./modules/home];
     templates = {
       go = mkTemplate "go" "Dev tools for golang";
       go-package = mkTemplate "go-package" "Flake to build golang package with necessary dev tools";
