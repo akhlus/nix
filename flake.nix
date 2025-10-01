@@ -26,7 +26,14 @@
       default.imports = darwin.imports ++ home.imports;
     };
 
-    homeModules.default.imports = [./modules/home];
+    homeModules = rec {
+      default.imports = [./modules/home];
+      de.imports = [
+        inputs.plasma-manager.homeModules.default
+        ./modules/home/de
+      ];
+      all.imports = default.imports ++ de.imports;
+      };
 
     nixosModules = rec {
       nixos.imports = [

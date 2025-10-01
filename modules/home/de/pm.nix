@@ -1,12 +1,10 @@
 {
   config,
-  inputs,
   lib,
   pkgs,
   username,
   ...
 }: lib.mkIf config.hMods.de.enablePM {
-  imports = [inputs.plasma-manager.homeModules.default];
   programs = let
     mkFont = family: size: {
       inherit family;

@@ -1,16 +1,10 @@
-{
-  config,
-  lib,
-  ...
-}: let
-  cfg = config.hMods.de;
-in {
+{lib, ...}: {
   imports = [
     ./dconf.nix
     ./pm.nix
   ];
   options.hMods.de = {
-    enableDconf = lib.mkEnableOption "dconf settings management" // {default = false;};
-    enablePM = lib.mkEnableOption "plasma-manager file" // {default = false;};
+    enableDconf = lib.mkEnableOption "dconf settings management";
+    enablePM = lib.mkEnableOption "plasma-manager file";
   };
 }
