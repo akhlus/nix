@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  username,
   ...
 }: let
   cfg = config.nMods.de;
@@ -30,14 +29,13 @@ in {
         totem
       ];
     };
-    home-manager.users.${username}.imports = [./dconf.nix];
     qt = {
       enable = true;
       platformTheme = "gnome";
       style = "adwaita-dark";
     };
     services = {
-      displayManager.gdm.enable = !config.nMods.de.enableJovian;
+      displayManager.gdm.enable = cfg.enableDM;
       desktopManager.gnome.enable = true;
       power-profiles-daemon.enable = lib.mkDefault true;
       gnome.gnome-keyring.enable = true;

@@ -1,0 +1,16 @@
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.hMods.de;
+in {
+  imports =
+    lib.optionsals cfg.enableDconf [./dconf.nix]
+    ++ lib.optionals cfg.enablePM [./pm.nix];
+  options.hMods.de = {
+    enableDconf = lib.mkEnableOption "dconf settings management" // {default = !pkgs.stdenv.isDarwin;};
+    enablePM = lib.mkEnableOption "plasma-manager file" // {default = false;};
+  };
+}

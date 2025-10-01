@@ -7,6 +7,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
   outputs = inputs @ {self, ...}: let
     mkTemplate = name: description: {
@@ -27,6 +32,18 @@
     };
 
     homeModules.default.imports = [./modules/home];
+
+    nixosModules = rec {
+      nixos.imports = [
+        ./modules/nixos
+      ];
+      home.imports = [
+        inputs.home-manager.nixosModules.home-manager
+        ./modules/nixos/home.nix
+      ];
+      default.imports = nixos.imports ++ home.imports;
+    };
+
     templates = {
       go = mkTemplate "go" "Dev tools for golang";
       go-package = mkTemplate "go-package" "Flake to build golang package with necessary dev tools";

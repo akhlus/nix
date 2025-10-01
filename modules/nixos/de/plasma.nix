@@ -1,9 +1,7 @@
 {
   config,
-  inputs,
   lib,
   pkgs,
-  username,
   ...
 }: let
   cfg = config.nMods.de;
@@ -21,13 +19,9 @@ in {
         plasma-browser-integration
       ];
     };
-    home-manager = {
-      sharedModules = [inputs.plasma-manager.homeModules.plasma-manager];
-      users.${username}.imports = [./pm.nix];
-    };
     services = {
       displayManager.sddm = {
-        enable = !cfg.enableJovian;
+        enable = cfg.enableDM;
         wayland.enable = true;
       };
       desktopManager.plasma6.enable = true;

@@ -19,13 +19,12 @@ in {
       description = "Environment choice";
       default = null;
     };
-    enableJovian = lib.mkEnableOption "Jovian - SteamOS equivalent" // {default = false;};
-    enableAutoStartJovian = lib.mkEnableOption "Autostart for Jovian" // {default = config.nMods.de.enableJovian;};
     enableAutoLogin = lib.mkEnableOption "Auto Login";
+    enableDM = lib.mkEnableOption "Enable Display Manager for chosen environment" // {default = true;};
   };
   config = {
     services.displayManager = {
-      enable = lib.mkIf (!cfg.enable) false;
+      enable = cfg.enable;
       autoLogin = lib.mkIf cfg.enableAutoLogin {
         enable = cfg.enableAutoLogin;
         user = username;

@@ -21,4 +21,6 @@
       package = config.lib.nixGL.wrap pkgs.ghostty;
     };
   };
+  # enable plasma-manager default config
+  hMods.de.enablePM = true;
 }

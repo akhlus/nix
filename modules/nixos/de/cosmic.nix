@@ -10,6 +10,6 @@ in {
       enable = true;
       xwayland.enable = true;
     };
-    services.displayManager.cosmic-greeter.enable = !cfg.enableJovian;
+    services.displayManager.cosmic-greeter.enable = cfg.enableDM;
   };
 }

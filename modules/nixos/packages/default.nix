@@ -2,6 +2,7 @@
   imports = [
     ./fonts.nix
     ./nautilus.nix
+    ./nix.nix
     ./steam.nix
   ];
   programs = {

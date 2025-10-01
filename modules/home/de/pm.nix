@@ -1,9 +1,11 @@
 {
   config,
+  inputs,
   pkgs,
   username,
   ...
 }: {
+  imports = [inputs.plasma-manager.homeModules.default];
   programs = let
     mkFont = family: size: {
       inherit family;

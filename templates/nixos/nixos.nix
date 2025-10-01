@@ -1,6 +1,10 @@
 {username, ...}: {
-  #darwin configuration goes here
-  dMods.ssh.pubKey = "";
+  #nixos configuration goes here
+  nMods = {
+    de.environment = "plasma";
+    ssh.publicKey = "PUB_KEY";
+    steam.enable = false;
+  };
 
   home-manager.users.${username} = {
     #home config goes here
