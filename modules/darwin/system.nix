@@ -1,16 +1,12 @@
 {
-  flakePath,
   hostname,
   pkgs,
   username,
   ...
 }: {
   networking.hostName = hostname;
-  environment.variables = {
-    FLAKE_PATH = "${flakePath}";
-    LD_LIBRARY_PATH = "$NIX_LD_LIBRARY_PATH";
-  };
   security.pam.services.sudo_local.touchIdAuth = true;
+  services.tailscale.enable = true;
   system = {
     stateVersion = 6;
     primaryUser = "${username}";

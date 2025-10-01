@@ -1,5 +1,4 @@
 {
-  flakePath,
   hostname,
   pkgs,
   username,
@@ -10,10 +9,7 @@
     ./locale.nix
     ./nvidia.nix
   ];
-  environment.variables = {
-    FLAKE_PATH = "${flakePath}";
-    LD_LIBRARY_PATH = "$NIX_LD_LIBRARY_PATH";
-  };
+  environment.variables.LD_LIBRARY_PATH = "$NIX_LD_LIBRARY_PATH";
   users.users.${username} = {
     name = "${username}";
     description = username;

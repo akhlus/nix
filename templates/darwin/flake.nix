@@ -15,13 +15,10 @@
     hostname = "HOSTNAME";
     username = "USERNAME";
     system = "aarch64-darwin";
-    in {
+  in {
     darwinConfigurations.${hostname} = inputs.nix-darwin.lib.darwinSystem {
       inherit system;
-      specialArgs = {
-        inherit inputs hostname username;
-        flakePath = "/Users/${username}/darwin";
-      };
+      specialArgs = {inherit inputs hostname username;};
       modules = [
         inputs.nix-akhlus.darwinModules.all
         ./darwin.nix

@@ -1,5 +1,4 @@
 {
-  flakePath,
   lib,
   pkgs,
   username,
@@ -13,7 +12,6 @@
       else "/home/${username}"
     );
     sessionPath = lib.optionals pkgs.stdenv.isDarwin ["/opt/homebrew/bin"];
-    sessionVariables = {FLAKE_PATH = "${flakePath}";};
     stateVersion = "24.11";
   };
   fonts.fontconfig.enable = true;

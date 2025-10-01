@@ -14,10 +14,7 @@
   in {
     nixosConfigurations.${hostname} = inputs.nixpkgs.lib.nixosSystem {
       inherit system;
-      specialArgs = {
-        inherit inputs hostname username;
-        flakePath = "/Users/${username}/darwin";
-      };
+      specialArgs = {inherit inputs hostname username;};
       modules = [
         inputs.nix-akhlus.nixosModules.all
         ./nixos.nix

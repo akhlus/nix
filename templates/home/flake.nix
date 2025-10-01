@@ -27,10 +27,7 @@
   in {
     homeConfigurations.${username} = inputs.home-manager.lib.homeManagerConfiguration {
       pkgs = inputs.nixpkgs.legacyPackages.${system};
-      specialArgs = {
-        inherit inputs username;
-        flakePath = "/home/${username}/home";
-      };
+      specialArgs = {inherit inputs username;};
       modules = [
         #inputs.plasma-manager.homeModules.default
         #inputs.nix-flatpak.homeManagerModules.nix-flatpak

@@ -1,6 +1,5 @@
 {
   config,
-  flakePath,
   lib,
   pkgs,
   ...
@@ -15,14 +14,12 @@ in {
     };
   };
   config = lib.mkIf cfg.enable {
-    home.file = {
-      ".config/zed/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/hm/packages/zed/zed-settings.json";
-    };
     programs.zed-editor = {
       enable = cfg.enable;
       extraPackages = [pkgs.nixd];
       installRemoteServer = true;
       package = cfg.package;
+      userSettings = builtins.readFile (builtins.fromJSON ./zed-settings.json);
       themes = {akhlus = akhlusTheme;};
     };
   };

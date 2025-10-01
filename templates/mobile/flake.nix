@@ -15,14 +15,10 @@
     hostname = "HOSTNAME";
     username = "USERNAME";
     device = "DEVICE";
-    system = "aarch64-linux";
   in {
     nixosConfigurations.${hostname} = inputs.nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = {
-        inherit inputs hostname username;
-        flakePath = "/Users/${username}/darwin";
-      };
+      system = "aarch64-linux";
+      specialArgs = {inherit inputs hostname username;};
       modules = [
         (import "${inputs.mobile-nixos}/lib/configuration.nix" {inherit device;})
         inputs.nix-akhlus.nixosModules.all

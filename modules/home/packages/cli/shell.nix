@@ -1,6 +1,5 @@
 {
   config,
-  flakePath,
   lib,
   ...
 }: let
@@ -10,7 +9,6 @@
     "lt" = "eza --tree --level=2 --long --git";
     "lta" = "lt -a";
     "py" = "python3";
-    "nrb" = "sh ${flakePath}/update.sh -p ${flakePath}";
   };
 in {
   options.hMods.packages.shell = {

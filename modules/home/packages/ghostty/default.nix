@@ -1,6 +1,5 @@
 {
   config,
-  flakePath,
   lib,
   pkgs,
   ...
@@ -43,7 +42,17 @@ in {
         palette = 14=${theme.base0C}
         palette = 15=${theme.base07}
       '';
-      ".config/ghostty/config".source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/hm/packages/ghostty/ghostty-config";
+      ".config/ghostty/config".text = ''
+        font-family = "Lilex Nerd Font"
+        font-size = 14
+        window-decoration = "auto"
+        window-theme = "ghostty"
+        theme = ${theme.name}
+        background-blur = 20
+        unfocused-split-opacity = 0.75
+        keybind = ctrl+shift+w=close_surface
+        keybind = cmd+shift+w=close_surface
+      '';
     };
     programs.ghostty = {
       enable = cfg.enable;
