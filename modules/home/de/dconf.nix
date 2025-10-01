@@ -7,7 +7,7 @@
 }: let
   bg = config.hMods.cosmetic.backgroundFile;
 in
-  with lib.hm.gvariant; {
+  with lib.hm.gvariant; lib.mkIf config.hMods.de.enableDconf {
     dconf.settings = {
       "org/gnome/TextEditor" = {
         restore-session = false;
