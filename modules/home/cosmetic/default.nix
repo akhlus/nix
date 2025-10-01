@@ -28,11 +28,7 @@ in {
       description = "Where the background should be located with in the home folder";
     };
     enableCursor = lib.mkEnableOption "cursor management" // {default = !pkgs.stdenv.isDarwin;};
-    cursorPackage = lib.mkOption {
-      type = lib.types.pkgs;
-      default = pkgs.afterglow-cursors-recolored;
-      description = "Which package to use for the cursor";
-    };
+    cursorPackage = lib.mkPackageOption pkgs "cursor" {default = "afterglow-cursors-recolored";};
     cursorName = lib.mkOption {
       description = "Name of cursor";
       type = lib.types.str;

@@ -29,7 +29,7 @@
     homeModules = rec {
       default.imports = [./modules/home];
       de.imports = [
-        inputs.plasma-manager.homeModules.default
+        inputs.plasma-manager.homeModules.plasma-manager
         ./modules/home/de
       ];
       all.imports = default.imports ++ de.imports;

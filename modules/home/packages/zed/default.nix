@@ -19,7 +19,7 @@ in {
       extraPackages = [pkgs.nixd];
       installRemoteServer = true;
       package = cfg.package;
-      userSettings = builtins.readFile (builtins.fromJSON ./zed-settings.json);
+      userSettings = builtins.fromJSON (builtins.readFile ./zed-settings.json);
       themes = {akhlus = akhlusTheme;};
     };
   };
