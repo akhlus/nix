@@ -1,6 +1,6 @@
 {username, ...}: {
   #darwin configuration goes here
-  dMods.ssh.pubKey = "";
+  dMods.ssh.publicKey = "";
 
   home-manager.users.${username} = {
     #home config goes here

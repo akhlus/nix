@@ -14,13 +14,12 @@
   outputs = inputs @ {...}: let
     hostname = "HOSTNAME";
     username = "USERNAME";
-    system = "aarch64-darwin";
   in {
     darwinConfigurations.${hostname} = inputs.nix-darwin.lib.darwinSystem {
-      inherit system;
+      system = "aarch64-darwin";
       specialArgs = {inherit inputs hostname username;};
       modules = [
-        inputs.nix-akhlus.darwinModules.all
+        inputs.nix-akhlus.darwinModules.default
         ./darwin.nix
       ];
     };
