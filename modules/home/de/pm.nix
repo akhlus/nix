@@ -89,7 +89,21 @@ lib.mkIf config.hMods.de.enablePM {
           location = "bottom";
           opacity = "translucent";
           widgets = [
-            {iconTasks.iconsOnly = true;}
+            {
+              iconTasks = {
+                behavior.showTasks = {
+                  onlyInCurrentScreen = false;
+                  onlyInCurrentDesktop = false;
+                  onlyInCurrentActivity = false;
+                  onlyMinimized = false;
+                };
+                iconsOnly = true;
+                launchers = [
+                  "preferred://filemanager"
+                  "preferred://browser"
+                ];
+              };
+            }
           ];
         }
       ];

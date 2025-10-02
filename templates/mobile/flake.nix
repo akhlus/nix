@@ -15,14 +15,23 @@
     hostname = "HOSTNAME";
     username = "USERNAME";
     device = "DEVICE";
+    system = "aarch64-linux";
   in {
     nixosConfigurations.${hostname} = inputs.nixpkgs.lib.nixosSystem {
-      system = "aarch64-linux";
+      inherit system;
       specialArgs = {inherit inputs hostname username;};
       modules = [
         (import "${inputs.mobile-nixos}/lib/configuration.nix" {inherit device;})
         inputs.nix-akhlus.nixosModules.all
         ./nixos.nix
+      ];
+    };
+    homeConfigurations.${username} = inputs.home-manager.lib.homeManagerConfiguration {
+      pkgs = inputs.nixpkgs.legacyPackages.${system};
+      extraSpecialArgs = {inherit inputs username;};
+      modules = [
+        inputs.nix-akhlus.homeModules.all
+        ./home.nix
       ];
     };
   };

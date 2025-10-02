@@ -1,7 +1,7 @@
 name = "akhlus"
 author = "akhlus"
 variant = "dark"
-opacity_ghostty = "0.95"
+opacity_ghostty = "1."
 opacity_zed = ""
 base00 = "#101010"       # base
 base01 = "#161616"       # mantle

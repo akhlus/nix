@@ -48,10 +48,10 @@ in {
         window-decoration = "auto"
         window-theme = "ghostty"
         theme = ${theme.name}
-        background-blur = 20
         unfocused-split-opacity = 0.75
         keybind = ctrl+shift+w=close_surface
         keybind = cmd+shift+w=close_surface
+        config-file = ?user-config
       '';
     };
     programs.ghostty = {
