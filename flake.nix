@@ -33,7 +33,7 @@
         ./modules/home/de
       ];
       all.imports = default.imports ++ de.imports;
-      };
+    };
 
     nixosModules = rec {
       nixos.imports = [

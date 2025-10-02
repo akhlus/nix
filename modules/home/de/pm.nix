@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   username,
   ...
 }: lib.mkIf config.hMods.de.enablePM {
@@ -22,7 +21,7 @@
     plasma = {
       enable = true;
       configFile = {
-        "kdeglobals"."General"."TerminalApplication" = "${pkgs.ghostty}/bin/ghostty --gtk-single-instance=true";
+        "kdeglobals"."General"."TerminalApplication" = "${config.hMods.packages.ghostty.package}/bin/ghostty --gtk-single-instance=true";
         "kdeglobals"."General"."TerminalService" = "com.mitchellh.ghostty.desktop";
         "kdeglobals"."KDE"."AnimationDurationFactor" = 0;
         "kwinrc"."Windows"."FocusPolicy" = "FocusFollowsMouse";
