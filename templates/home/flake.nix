@@ -11,10 +11,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-
-    #optional extras
-    # nix-flatpak.url = "github:gmodena/nix-flatpak";
-    # nixgl.url = "github:nix-community/nixGL";
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
+    nixgl.url = "github:nix-community/nixGL";
   };
   outputs = inputs @ {...}: let
     system = "SYSTEM";
@@ -24,9 +22,9 @@
       pkgs = inputs.nixpkgs.legacyPackages.${system};
       extraSpecialArgs = {inherit inputs username;};
       modules = [
-        #inputs.nix-flatpak.homeManagerModules.nix-flatpak
         inputs.nix-akhlus.homeModules.default
         ./home.nix
+        inputs.nix-flatpak.homeManagerModules.nix-flatpak
       ];
     };
   };
