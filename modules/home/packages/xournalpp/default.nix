@@ -11,7 +11,7 @@ in {
     package = lib.mkPackageOption pkgs "xournalpp" {nullable = true;};
   };
   config = (lib.mkIf cfg.xournalpp.enable) {
-    home.packages = [cfg.package];
+    home.packages = [cfg.xournalpp.package];
     home.file = {
       ".config/xournalpp/palette.gpl".source = ./palette.gpl;
       ".config/xournalpp/toolbar.ini".source = ./toolbar.ini;

@@ -3,13 +3,14 @@
   lib,
   username,
   ...
-}: lib.mkIf config.hMods.de.enablePM {
+}:
+lib.mkIf config.hMods.de.enablePM {
   programs = let
     mkFont = family: size: {
       inherit family;
       pointSize = size;
     };
-  in  {
+  in {
     okular = {
       enable = true;
       general = {
@@ -21,8 +22,6 @@
     plasma = {
       enable = true;
       configFile = {
-        "kdeglobals"."General"."TerminalApplication" = "${config.hMods.packages.ghostty.package}/bin/ghostty --gtk-single-instance=true";
-        "kdeglobals"."General"."TerminalService" = "com.mitchellh.ghostty.desktop";
         "kdeglobals"."KDE"."AnimationDurationFactor" = 0;
         "kwinrc"."Windows"."FocusPolicy" = "FocusFollowsMouse";
       };
@@ -33,6 +32,11 @@
         small = mkFont "IBM Plex Sans" 9;
         toolbar = mkFont "IBM Plex Sans" 12;
         windowTitle = mkFont "IBM Plex Sans" 12;
+      };
+      hotkeys.commands."launch-ghostty" = {
+        name = "Launch Ghostty";
+        key = "Meta+Return";
+        command = "ghostty";
       };
       input.keyboard.options = ["caps:escape"];
       krunner = {
@@ -69,14 +73,23 @@
           location = "top";
           opacity = "translucent";
           widgets = [
+            {kickoff.sortAlphabetically = true;}
             {
-              kickoff = {
-                sortAlphabetically = true;
-                icon = "nix-snowflake-white";
+              digitalClock = {
+                time.format = "24h";
+                calendar.firstDayOfWeek = "monday";
               };
             }
-            "org.kde.plasma.digitalclock"
             "org.kde.plasma.systemtray"
+          ];
+        }
+        {
+          hiding = "dodgewindows";
+          lengthMode = "fit";
+          location = "bottom";
+          opacity = "translucent";
+          widgets = [
+            {iconTasks.iconsOnly = true;}
           ];
         }
       ];
@@ -99,7 +112,6 @@
         "plasmashell"."activate task manager entry 8" = "";
         "plasmashell"."activate task manager entry 9" = "";
         "plasmashell"."manage activities" = "";
-        "services/com.mitchellh.ghostty.desktop"."_launch" = "Meta+Return";
         "services/org.kde.dolphin.desktop"."_launch" = "Meta+F";
         "services/org.kde.konsole.desktop"."_launch" = [];
         "services/org.kde.krunner.desktop"."_launch" = "Meta+Space";
@@ -115,6 +127,7 @@
       windows.allowWindowsToRememberPositions = true;
       workspace = {
         enableMiddleClickPaste = true;
+        lookAndFeel = "org.kde.breezedark.desktop";
         colorScheme = "BreezeDark";
         wallpaper = "/home/${username}/${config.hMods.cosmetic.backgroundFile}";
         wallpaperFillMode = "stretch";
