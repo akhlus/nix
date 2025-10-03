@@ -8,25 +8,25 @@
     enableDefaultConfig = false;
     matchBlocks = {
       "u410" = {
-        hostname = "192.168.10.10";
+        hostname = "u410";
         user = "u410";
         port = 2222;
         identityFile = "~/.ssh/pubKeys/u410.pub";
       };
       "a3" = {
-        hostname = "192.168.10.11";
+        hostname = "a3";
         user = "sam";
         port = 2222;
         identityFile = "~/.ssh/pubKeys/a3.pub";
       };
       "duet3" = {
-        hostname = "192.168.10.13";
+        hostname = "duet3";
         user = "sam";
         port = 2222;
         identityFile = "~/.ssh/pubKeys/duet3.pub";
       };
       "mba" = {
-        hostname = "192.168.10.14";
+        hostname = "mba";
         user = "sam";
         port = 22;
         identityFile = "~/.ssh/pubKeys/mba.pub";

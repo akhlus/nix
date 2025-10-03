@@ -1,5 +1,8 @@
 {...}: {
-  imports = [./ssh.nix];
+  imports = [
+    ./ssh.nix
+    ./tailscale.nix
+  ];
   security.rtkit.enable = true;
   services = {
     avahi = {
