@@ -16,8 +16,7 @@ in {
   config = {
     services.aerospace = lib.mkIf cfg.enable {
       enable = cfg.enable;
-      #settings = lib.mkIf cfg.enableDefaults {
-      #} // cfg.extraSettings;
+      settings = builtins.fromTOML (builtins.readFile ./aerospace.toml);
     };
   };
 }
