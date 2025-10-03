@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./aerospace.nix
     ./brew.nix
     ./nix.nix
     ./ssh.nix
