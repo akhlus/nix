@@ -17,7 +17,7 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
     outer.right =      0
 [mode.main.binding]
     alt-slash = 'layout tiles horizontal vertical'
-    alt-period = 'layout accordion horizontal vertical'
+    alt-comma = 'layout accordion horizontal vertical'
     alt-h = 'focus left'
     alt-j = 'focus down'
     alt-k = 'focus up'
