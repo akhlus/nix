@@ -32,7 +32,8 @@
     optimise.automatic = true;
   };
 
-  #only for lenovo wormdinger
+  # only for lenovo wormdinger
+  # see mobile-nixos for other device specific options
   hardware.firmware = [
     pkgs.chromeos-sc7180-unredistributable-firmware
   ];
