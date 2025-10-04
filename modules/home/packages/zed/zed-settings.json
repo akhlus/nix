@@ -85,13 +85,13 @@
         },
         "options": {
           "nixos": {
-            "expr": "(builtins.getFlake (builtins.getEnv \"FLAKE_PATH\")).nixosConfigurations.a3.options"
+            "expr": "(builtins.getFlake github:akhlus/nix).nixosConfigurations.a3.options"
           },
           "darwin": {
-            "expr": "(builtins.getFlake (builtins.getEnv \"FLAKE_PATH\")).darwinConfigurations.mba.options"
+            "expr": "(builtins.getFlake github:akhlus/nix).darwinConfigurations.mba.options"
           },
           "home": {
-            "expr": "(builtins.getFlake (builtins.getEnv \"FLAKE_PATH\")).homeConfigurations.deck.options"
+            "expr": "(builtins.getFlake github:akhlus/nix).homeConfigurations.deck.options"
           }
         }
       }
