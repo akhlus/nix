@@ -85,13 +85,13 @@
         },
         "options": {
           "nixos": {
-            "expr": "(builtins.getFlake github:akhlus/nix).nixosConfigurations.a3.options"
+            "expr": "(builtins.getFlake github:akhlus/nix).nixosConfigurations.test.options"
           },
           "darwin": {
-            "expr": "(builtins.getFlake github:akhlus/nix).darwinConfigurations.mba.options"
+            "expr": "(builtins.getFlake github:akhlus/nix).darwinConfigurations.test.options"
           },
           "home": {
-            "expr": "(builtins.getFlake github:akhlus/nix).homeConfigurations.deck.options"
+            "expr": "(builtins.getFlake github:akhlus/nix).homeConfigurations.test.options"
           }
         }
       }
