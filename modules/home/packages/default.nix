@@ -53,7 +53,6 @@ in {
         firefox
       ])
       ++ (lib.optionals cfg.enableExtra [
-        code-cursor
         discord
         gemini-cli
         google-chrome

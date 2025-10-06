@@ -2,7 +2,7 @@
   templates = let
     mkTemplate = name: description: {
       inherit description;
-      path = ./templates/${name};
+      path = ./${name};
     };
   in {
     darwin = mkTemplate "darwin" "Darwin system flake";
