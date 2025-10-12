@@ -1,0 +1,5 @@
+{...}: {
+  hMods.packages = {
+    enableMinimal = true;
+  };
+}

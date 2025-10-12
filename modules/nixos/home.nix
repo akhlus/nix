@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   specialArgs,
   username,
   ...
@@ -11,7 +12,9 @@ in {
     backupFileExtension = "bak";
     extraSpecialArgs = specialArgs;
     useGlobalPkgs = true;
-    sharedModules = [../home];
+    sharedModules = [
+      (inherit (import ../.) homeModules);
+    ];
     users.${username} = {
       hMods.de.enablePM = isPlasma;
     };

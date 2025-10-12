@@ -9,7 +9,6 @@ in {
   imports = [
     ./cosmic.nix
     ./gnome.nix
-    ./jovian.nix
     ./plasma.nix
   ];
   options.nMods.de = {

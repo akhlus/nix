@@ -18,7 +18,7 @@
     };
   };
   outputs = inputs @ {self, ...}: let
-    modules = import ./modules {inherit inputs;};
+    modules = import ./modules {inherit inputs self;};
     templates = import ./templates;
     systems = import ./systems {inherit inputs self;};
   in {
