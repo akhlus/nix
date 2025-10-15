@@ -16,7 +16,7 @@
         pkgs = nixpkgs.legacyPackages.${system};
         pythonEnv = pkgs.python3.withPackages (p:
           with p; [
-            #python packages go here
+            python-lsp-server
           ]);
       in {
         devShells.default = pkgs.mkShell {

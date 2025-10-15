@@ -67,9 +67,13 @@
         tilesize = 34;
       };
       finder = {
+        _FXShowPosixPathInTitle = true;
+        _FXSortFoldersFirst = true;
         AppleShowAllFiles = true;
         CreateDesktop = false;
+        FXPreferredViewStyle = "Nlsv";
         NewWindowTarget = "Home";
+        QuitMenuItem = true;
         ShowExternalHardDrivesOnDesktop = false;
         ShowHardDrivesOnDesktop = false;
         ShowPathbar = true;
