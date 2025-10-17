@@ -13,7 +13,9 @@ in {
     extraSpecialArgs = specialArgs;
     useGlobalPkgs = true;
     sharedModules = [
-      (inherit (import ../.) homeModules);
+      ../home
+      ../home/de
+      inputs.plasma-manager.homeModules.plasma-manager
     ];
     users.${username} = {
       hMods.de.enablePM = isPlasma;
